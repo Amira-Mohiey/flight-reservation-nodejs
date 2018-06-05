@@ -20,7 +20,11 @@ fs.readdirSync(__dirname + "/app/models/").forEach(function(file) {
 // routes
 var seatRouter = require(__dirname+'/app/controllers/seat.js')
 var userRouter = require(__dirname+'/app/controllers/user.js')
-
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 app.use('/seats', seatRouter)
 app.use('/users', userRouter)
 
