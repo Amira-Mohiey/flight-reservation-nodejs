@@ -23,6 +23,7 @@ router.get('', function (req, res) {//list seats
                 number: req.body.number,
                 seat: seat._id
             })
+            console.log(user,req.body)
             user.save(function (err, user) {
                 if (err) {
                     res.json({
